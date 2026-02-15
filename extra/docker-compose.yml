@@ -9,16 +9,16 @@ services:
     command:
       - controller
 
-  alfworld-std:
-    build:
-      context: ..
-      dockerfile: src/server/tasks/alfworld/Dockerfile
-    command: --controller http://172.17.0.1:5020/api alfworld-std
-    deploy:
-      mode: replicated
-      replicas: 1
-    depends_on:
-      - controller
+#  alfworld-std:
+#    build:
+#      context: ..
+#      dockerfile: src/server/tasks/alfworld/Dockerfile
+#    command: --controller http://172.17.0.1:5020/api alfworld-std
+#    deploy:
+#      mode: replicated
+#      replicas: 1
+#    depends_on:
+#      - controller
 
   dbbench-std:
     build:
@@ -35,19 +35,19 @@ services:
     depends_on:
       - controller
 
-  knowledgegraph-std:
-    build:
-      context: ..
-      dockerfile: src/server/tasks/knowledgegraph/Dockerfile
-    command: --controller http://172.17.0.1:5020/api kg-std
-    environment:
-      - KG_STD_PARAMETERS_ENV_OPTIONS_URLS_KG=http://freebase:3001/sparql
-    deploy:
-      mode: replicated
-      replicas: 1
-    depends_on:
-      - controller
-      - freebase
+#  knowledgegraph-std:
+#    build:
+#      context: ..
+#      dockerfile: src/server/tasks/knowledgegraph/Dockerfile
+#    command: --controller http://172.17.0.1:5020/api kg-std
+#    environment:
+#      - KG_STD_PARAMETERS_ENV_OPTIONS_URLS_KG=http://freebase:3001/sparql
+#    deploy:
+#      mode: replicated
+#      replicas: 1
+#    depends_on:
+#      - controller
+#      - freebase
 
   os_interaction-std:
     build:
@@ -64,24 +64,24 @@ services:
     depends_on:
       - controller
 
-  webshop-std:
-    build:
-      context: ..
-      dockerfile: src/server/tasks/webshop/Dockerfile
-    command: --controller http://172.17.0.1:5020/api webshop-std
-    deploy:
-      mode: replicated
-      replicas: 1
-    depends_on:
-      - controller
+#  webshop-std:
+#    build:
+#      context: ..
+#      dockerfile: src/server/tasks/webshop/Dockerfile
+#    command: --controller http://172.17.0.1:5020/api webshop-std
+#    deploy:
+#      mode: replicated
+#      replicas: 1
+#    depends_on:
+#      - controller
 
-  freebase:
-    build:
-      context: ..
-      dockerfile: extra/freebase.Dockerfile
-    volumes:
-      - ./virtuoso_db/virtuoso.db:/database/virtuoso.db
-    init: true
+#  freebase:
+#    build:
+#      context: ..
+#      dockerfile: extra/freebase.Dockerfile
+#    volumes:
+#      - ./virtuoso_db/virtuoso.db:/database/virtuoso.db
+#    init: true
 
   redis:
     image: redis:7
