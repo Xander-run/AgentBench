@@ -4,7 +4,7 @@ gpt-5-nano-2025-08-07:
         name: "gpt-5-nano-2025-08-07"
         body:
             model: "gpt-5-nano-2025-08-07"
-            max_tokens: 512
+            max_completion_tokens: 512
 
 text-davinci-003:
     import: "./openai-text.yaml"
